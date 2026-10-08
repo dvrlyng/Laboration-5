@@ -33,11 +33,24 @@ let history = [];
  * @returns {boolean}
  */
 function validateForm() {
+    errors = [];
     // Kontrollera formulärets obligatoriska fält
+    if (fullnameInput.value === "") {
+        errors.push("du måste ange ditt namn");
+    }
+    if (emailInput.value === "") {
+        errors.push("du måste ange ditt e-postadress");
+    }
+
+    if (phoneInput.value === "") {
+        errors.push("du måste ange ditt telefonnummer");
+    }
 
     // Visa eventuella felmeddelanden
+    displayErrors();
 
     // Returnera resultatet (true eller false) av valideringen
+    return errors.length === 0;
 }
 
 
@@ -46,8 +59,16 @@ function validateForm() {
  */
 function displayErrors() {
     // Rensa tidigare felmeddelanden
+    errorList.innerHTML = ""; //tömmer listan
+
 
     // Skriv ut aktuella felmeddelanden till DOM
+    errors.forEach(function (error) {
+        const liElement = document.createElement("li"); //skapar ny element
+        liElement.textContent = error;
+        errorList.appendChild(liElement); //lägger felmeddelanden på sidan
+    }
+    )
 }
 
 
