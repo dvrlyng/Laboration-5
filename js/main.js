@@ -35,14 +35,14 @@ let history = [];
 function validateForm() {
     errors = [];
     // Kontrollera formulärets obligatoriska fält
-    if (fullnameInput.value === "") {
+    if (fullnameInput.value.trim() === "") {
         errors.push("du måste ange ditt namn");
     }
-    if (emailInput.value === "") {
+    if (emailInput.value.trim() === "") {
         errors.push("du måste ange ditt e-postadress");
     }
 
-    if (phoneInput.value === "") {
+    if (phoneInput.value.trim() === "") {
         errors.push("du måste ange ditt telefonnummer");
     }
 
@@ -77,8 +77,8 @@ function displayErrors() {
  */
 function createStudentCard() {
     // Hämta information från formuläret
-    const name = fullnameInput.value.trim;
-    const email = emailInput.value.trim;
+    const name = fullnameInput.value;
+    const email = emailInput.value;
     const phone = phoneInput.value;
     const font = fontSelect.value;
 
@@ -90,8 +90,6 @@ function createStudentCard() {
     previewFullname.style.fontFamily = font; //kunna välja typsnitt man vill
     previewEmail.style.fontFamily = font;
     previewPhone.style.fontFamily = font;
-
-
 
     // Lägg till studentkortet i historiken
 
@@ -171,6 +169,7 @@ form.addEventListener("submit", function (event) { //skapade eventlistener som l
 
 // När användaren klickar på "Rensa"
 clearButton.addEventListener("click", clearForm) //texten raderas när man trycker på rensa
+
 // När användaren klickar på "Radera historik"
 
 
