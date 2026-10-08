@@ -33,7 +33,7 @@ let history = [];
  * @returns {boolean}
  */
 function validateForm() {
-    errors = [];
+    errors = []; //tömmer arrayen
     // Kontrollera formulärets obligatoriska fält
     if (fullnameInput.value.trim() === "") {
         errors.push("du måste ange ditt namn");
@@ -50,7 +50,7 @@ function validateForm() {
     displayErrors();
 
     // Returnera resultatet (true eller false) av valideringen
-    return errors.length === 0;
+    return errors.length === 0; //returnerar true om det inte finns några fel
 }
 
 
@@ -59,7 +59,7 @@ function validateForm() {
  */
 function displayErrors() {
     // Rensa tidigare felmeddelanden
-    errorList.innerHTML = ""; //tömmer listan
+    errorList.innerHTML = ""; //tömmer listan i sidan
 
 
     // Skriv ut aktuella felmeddelanden till DOM
@@ -92,8 +92,15 @@ function createStudentCard() {
     previewPhone.style.fontFamily = font;
 
     // Lägg till studentkortet i historiken
+    const StudentCard = { //skapar ett objekt för studentkortet
+        fullname: name,
+        email: email,
+        phone: phone,
+        font: font
+    };
 
     // Spara och uppdatera historiken
+    history.unshift(StudentCard); //senaste studentkortet visas först
 }
 
 
