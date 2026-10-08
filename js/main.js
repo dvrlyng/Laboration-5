@@ -56,8 +56,14 @@ function displayErrors() {
  */
 function createStudentCard() {
     // Hämta information från formuläret
+    const name = fullnameInput.value;
+    const email = emailInput.value;
+    const phone = phoneInput.value;
 
     // Uppdatera studentkortet
+    previewFullname.innerHTML = (name); //skriva ut text till dokument
+    previewEmail.innerHTML = (email);
+    previewPhone.innerHTML = (phone);
 
     // Lägg till studentkortet i historiken
 
@@ -98,6 +104,10 @@ function renderHistory() {
  */
 function clearForm() {
     // Återställ formulär och studentkort
+    fullnameInput.value = ""; //rensar formuläret
+    emailInput.value = "";
+    phoneInput.value = "";
+
 
     // Rensa eventuella felmeddelanden
 }
@@ -116,20 +126,22 @@ function deleteHistory() {
 // Eventlyssnare
 
 // När formuläret skickas:
+
 // - validera inmatningen
-form.addEventListener("submit", function(event){ //skapade eventlistener som lyssnar på submit
+form.addEventListener("submit", function (event) { //skapade eventlistener som lyssnar på submit
     event.preventDefault(); //för att sidan inte ska laddas om
-    
-    const name = fullnameInput.value;
-    const email = emailInput.value;
-    const phone = phoneInput.value;
-})
-// - skapa studentkort om valideringen lyckas
+
+    // - skapa studentkort om valideringen lyckas
+    if (validateForm()) {
+        createStudentCard();
+    }
+
+
+});
 
 
 // När användaren klickar på "Rensa"
-
-
+clearButton.addEventListener("click", clearForm) //texten raderas när man trycker på rensa
 // När användaren klickar på "Radera historik"
 
 
