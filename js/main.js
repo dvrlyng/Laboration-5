@@ -1,7 +1,7 @@
 "use strict";
 /*
  * Laboration 5 - Studentkortsgenerator
- * Namn: DITT NAMN
+ * Namn: Darlyng Leyton Bueno
  */
 
 // Hämta element från DOM
@@ -117,6 +117,13 @@ function deleteHistory() {
 
 // När formuläret skickas:
 // - validera inmatningen
+form.addEventListener("submit", function(event){ //skapade eventlistener som lyssnar på submit
+    event.preventDefault(); //för att sidan inte ska laddas om
+    
+    const name = fullnameInput.value;
+    const email = emailInput.value;
+    const phone = phoneInput.value;
+})
 // - skapa studentkort om valideringen lyckas
 
 
