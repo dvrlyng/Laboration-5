@@ -80,11 +80,18 @@ function createStudentCard() {
     const name = fullnameInput.value;
     const email = emailInput.value;
     const phone = phoneInput.value;
+    const font = fontSelect.value;
 
     // Uppdatera studentkortet
     previewFullname.innerHTML = (name); //skriva ut text till dokument
     previewEmail.innerHTML = (email);
     previewPhone.innerHTML = (phone);
+
+    previewFullname.style.fontFamily = font; //kunna välja font man vill
+    previewEmail.style.fontFamily = font;
+    previewPhone.style.fontFamily = font;
+
+
 
     // Lägg till studentkortet i historiken
 
