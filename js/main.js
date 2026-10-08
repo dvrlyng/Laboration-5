@@ -77,8 +77,8 @@ function displayErrors() {
  */
 function createStudentCard() {
     // Hämta information från formuläret
-    const name = fullnameInput.value;
-    const email = emailInput.value;
+    const name = fullnameInput.value.trim;
+    const email = emailInput.value.trim;
     const phone = phoneInput.value;
     const font = fontSelect.value;
 
@@ -87,7 +87,7 @@ function createStudentCard() {
     previewEmail.innerHTML = (email);
     previewPhone.innerHTML = (phone);
 
-    previewFullname.style.fontFamily = font; //kunna välja font man vill
+    previewFullname.style.fontFamily = font; //kunna välja typsnitt man vill
     previewEmail.style.fontFamily = font;
     previewPhone.style.fontFamily = font;
 
@@ -138,6 +138,7 @@ function clearForm() {
 
 
     // Rensa eventuella felmeddelanden
+    errorList.innerHTML = ""; //felmeddelanden raderas när man trycker på rensa knappen
 }
 
 
