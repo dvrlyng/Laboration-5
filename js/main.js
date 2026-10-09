@@ -138,8 +138,17 @@ function renderHistory() {
         const name = document.createElement("p"); //ny element
         name.textContent = studentCard.fullname; //hämtat namn från objektet studentCard
 
+        const email = document.createElement("p");
+        email.textContent = studentCard.email; //hämtar e-postadressen
+
+        const phone = document.createElement("p");
+        phone.textContent = studentCard.phone; //hämtar telefonnummer
+
         article.appendChild(name); //namnet ska visas på historik
-        historySection.appendChild(article);
+        article.appendChild(email); //email visas - II -
+        article.appendChild(phone); //telefonnummer visas -II-
+
+        historySection.appendChild(article); //lägger article inuti historiken
         
     });
 
