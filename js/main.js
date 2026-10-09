@@ -175,8 +175,10 @@ function clearForm() {
  */
 function deleteHistory() {
     // Radera sparad historik
+    history = []; //tömmer arrayen med studenkort
 
     // Uppdatera history och visningen på sidan
+    renderHistory(); //uppdaterar sidan
 }
 
 
@@ -201,7 +203,7 @@ form.addEventListener("submit", function (event) { //skapade eventlistener som l
 clearButton.addEventListener("click", clearForm) //texten raderas när man trycker på rensa
 
 // När användaren klickar på "Radera historik"
-
+deleteHistoryButton.addEventListener("click", deleteHistory); //historiken raderas på sidan
 
 // När sidan laddas:
 // - läs in och visa eventuell tidigare historik
