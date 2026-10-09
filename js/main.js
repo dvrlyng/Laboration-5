@@ -92,7 +92,7 @@ function createStudentCard() {
     previewPhone.style.fontFamily = font;
 
     // Lägg till studentkortet i historiken
-    const StudentCard = { //skapar ett objekt för studentkortet
+    const studentCard = { //skapar ett objekt för studentkortet
         fullname: name,
         email: email,
         phone: phone,
@@ -100,7 +100,9 @@ function createStudentCard() {
     };
 
     // Spara och uppdatera historiken
-    history.unshift(StudentCard); //senaste studentkortet visas först
+    history.unshift(studentCard); //senaste studentkortet visas först
+    
+    renderHistory(); //anropa funktionen
 }
 
 
@@ -127,8 +129,20 @@ function loadHistory() {
  */
 function renderHistory() {
     // Rensa tidigare visad historik
+    historySection.innerHTML = "";
 
     // Skriv ut innehållet i history till DOM
+    history.forEach(function (studentCard) { //går igenom varje kort i arrayen
+        const article = document.createElement("article"); //skapar ny element för kortet
+       
+        const name = document.createElement("p"); //ny element
+        name.textContent = studentCard.fullname; //hämtat namn från objektet studentCard
+
+        article.appendChild(name); //namnet ska visas på historik
+        historySection.appendChild(article);
+        
+    });
+
 }
 
 
