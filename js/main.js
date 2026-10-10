@@ -175,6 +175,12 @@ function clearForm() {
     phoneInput.value = "";
 
 
+    /*tror inte att detta var ett krav men testar ändå*/
+    previewFullname.textContent = "Namn"; //rensar aktuell studentkort
+    previewEmail.textContent = "E-post";
+    previewPhone.textContent = "Telefon";
+
+
     // Rensa eventuella felmeddelanden
     errorList.innerHTML = ""; //felmeddelanden raderas när man trycker på rensa knappen
 }
