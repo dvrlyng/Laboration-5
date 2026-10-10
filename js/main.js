@@ -122,9 +122,16 @@ function saveHistory() {
  */
 function loadHistory() {
     // Hämta eventuell sparad historik
+    const savedHistory = localStorage.getItem("history"); //skapat variabel, hämtar användaren från storage
 
     // Uppdatera history
+    if (savedHistory !== null) { //kontrollerar information om det finns sparad
+        history = JSON.parse(savedHistory); //omvandlar texten tillbaka till javascript
+    }
+
+    renderHistory();
 }
+loadHistory(); //kör hela funktionen
 
 
 /**
