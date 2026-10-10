@@ -101,7 +101,9 @@ function createStudentCard() {
 
     // Spara och uppdatera historiken
     history.unshift(studentCard); //senaste studentkortet visas först
-    
+
+    saveHistory(); //anropa funktion
+
     renderHistory(); //anropa funktionen
 }
 
@@ -111,6 +113,7 @@ function createStudentCard() {
  */
 function saveHistory() {
     // Spara history i localStorage
+    localStorage.setItem("history", JSON.stringify(history)); //omvandlar arrayen med studentkort till text och sparar texten i webbläsaren
 }
 
 
@@ -134,7 +137,7 @@ function renderHistory() {
     // Skriv ut innehållet i history till DOM
     history.forEach(function (studentCard) { //går igenom varje kort i arrayen
         const article = document.createElement("article"); //skapar ny element för kortet
-       
+
         const name = document.createElement("p"); //ny element
         name.textContent = studentCard.fullname; //hämtat namn från objektet studentCard
 
@@ -149,7 +152,7 @@ function renderHistory() {
         article.appendChild(phone); //telefonnummer visas -II-
 
         historySection.appendChild(article); //lägger article inuti historiken
-        
+
     });
 
 }
