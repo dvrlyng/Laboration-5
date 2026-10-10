@@ -185,6 +185,7 @@ function clearForm() {
  */
 function deleteHistory() {
     // Radera sparad historik
+    localStorage.removeItem("history"); //raderar historiken i localstorage
     history = []; //tömmer arrayen med studenkort
 
     // Uppdatera history och visningen på sidan
